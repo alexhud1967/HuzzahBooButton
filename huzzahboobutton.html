@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Toggle Button with Sounds</title>
+    <style>
+        /* Style for the round button */
+        #toggleButton {
+            border: none;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggleButton"></button>
+    
+    <audio id="booSound">
+        <source src="boo.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <audio id="yaySound">
+        <source src="huzzah.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+        var toggleButton = document.getElementById("toggleButton");
+        var booSound = document.getElementById("booSound");
+        var yaySound = document.getElementById("yaySound");
+        var isGreen = false;
+        
+        toggleButton.addEventListener("click", function() {
+            isGreen = !isGreen;
+            if (isGreen) {
+                toggleButton.style.backgroundColor = "green";
+                yaySound.play();
+            } else {
+                toggleButton.style.backgroundColor = "red";
+                booSound.play();
+            }
+        });
+    </script>
+</body>
+</html>
+
